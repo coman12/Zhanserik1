@@ -1,17 +1,11 @@
-public class Shopper {
-    private String name;
-    private String email;
+public class Shopper extends User {
 
-    public Shopper(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public Shopper(int id, String name) {
+        super(id, name);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void displayInfo() {
-        System.out.println("Shopper: " + name + ", Email: " + email);
+    @Override
+    public String getRole() {
+        return "Shopper";
     }
 }

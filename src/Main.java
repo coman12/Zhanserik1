@@ -1,19 +1,25 @@
 public class Main {
   public static void main(String[] args) {
 
-    Product p1 = new Product("Laptop", 1200);
-    Product p2 = new Product("Laptop", 1200);
+    Shop shop = new Shop();
 
-    Shopper s1 = new Shopper("Eskendir", "eseke@gmail.com");
+    Product p1 = new Product(1, "Laptop", 350000);
+    Product p2 = new Product(2, "Phone", 250000);
+    Product p3 = new Product(3, "Headphones", 50000);
 
-    Order order1 = new Order(p1, s1, 2);
+    shop.addProduct(p1);
+    shop.addProduct(p2);
+    shop.addProduct(p3);
 
-    order1.displayOrder();
+    Shopper shopper = new Shopper(1, "Aruzhan");
 
-    if (p1.getPrice() == p2.getPrice()) {
-      System.out.println("Products have the same price.");
-    } else {
-      System.out.println("Products have different prices.");
-    }
+    Order order = new Order(101, shopper);
+    order.addProduct(p1);
+    order.addProduct(p3);
+
+    System.out.println(order);
+    System.out.println("Search 'phone': " + shop.searchByName("phone"));
+    System.out.println("Filter <=200000: " + shop.filterByPrice(200000));
+    System.out.println("Sorted by price: " + shop.sortByPrice());
   }
 }

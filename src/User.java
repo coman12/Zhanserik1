@@ -1,14 +1,12 @@
 import java.util.Objects;
 
-public class Product {
-    private int id;
-    private String name;
-    private double price;
+public abstract class User {
+    protected int id;
+    protected String name;
 
-    public Product(int id, String name, double price) {
+    public User(int id, String name) {
         this.id = id;
         this.name = name;
-        this.price = price;
     }
 
     public int getId() {
@@ -19,23 +17,21 @@ public class Product {
         return name;
     }
 
-    public double getPrice() {
-        return price;
-    }
+    public abstract String getRole();
 
     @Override
     public String toString() {
-        return "Product{id=" + id +
+        return "User{id=" + id +
                 ", name='" + name +
-                "', price=" + price + "}";
+                "', role='" + getRole() + "'}";
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product)) return false;
-        Product product = (Product) o;
-        return id == product.id;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return id == user.id;
     }
 
     @Override
