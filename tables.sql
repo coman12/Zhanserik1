@@ -1,6 +1,3 @@
--- Assignment 3 – Project Milestone 1
--- Subject area: E-commerce Platform
-
 CREATE TABLE product (
                          id SERIAL PRIMARY KEY,
                          name VARCHAR(100),
